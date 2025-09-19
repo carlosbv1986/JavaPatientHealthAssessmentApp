@@ -1,0 +1,45 @@
+@startuml
+
+class Patient {
+    -pid : int
+    -age : int
+    -gender : int
+    -height : double
+    -weight : double
+    +getPMI() : double
+}
+
+interface LabMapping {
+    +mapBMI() : double
+    +mapBP(sbp:int, dbp:int) : int
+    +mapFBS(fbs:double) : int
+    +mapCholesterol(chol:double) : int
+    +mapHDL(hdl:double) : int
+    +mapLDL(ldl:double) : int
+    +mapTG(tg:double) : int
+    +mapA1C(a1c:double) : int
+}
+
+class Laboratory {
+    -dbp : int
+    -fbs : double
+    -chol : double
+    -hdl : double
+    -ldl : double
+    -tg : double
+    -a1c : double
+}
+
+class MedicalDiagnose {
+    +mapGender(gender:int) : char
+    +getTotal() : int
+    +classifyDiagnose() : int
+    +getCondition() : String
+}
+
+Laboratory ..|> LabMapping
+MedicalDiagnose ..|> Comparable
+Laboratory --> Patient
+MedicalDiagnose --> Laboratory
+
+@enduml

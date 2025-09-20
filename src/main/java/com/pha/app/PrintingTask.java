@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.pha.app;
 
 import java.awt.print.PrinterException;
@@ -11,10 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
 
-/**
- *
- * @author carlo
- */
 public class PrintingTask extends SwingWorker<Object, Object> {
 
     private final JTextArea textArea;

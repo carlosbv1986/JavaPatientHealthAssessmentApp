@@ -66,8 +66,6 @@ public class AppGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBoxSearch = new javax.swing.JComboBox<>();
         jButtonViewDiagnosisMap = new javax.swing.JButton();
         jButtonGenerateReport = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -101,10 +99,6 @@ public class AppGUI extends javax.swing.JFrame {
 
         jLabel2.setText("<html>In order to continue with the analysis, you need to open a Medical Records file with all patient readings.<br/>This application will read the data and display the results below.</html>");
 
-        jLabel3.setText("Search:");
-
-        jComboBoxSearch.setEditable(true);
-
         jButtonViewDiagnosisMap.setText("View Diagnosis Map");
         jButtonViewDiagnosisMap.setToolTipText("View diagnosis readings map.");
         jButtonViewDiagnosisMap.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +128,7 @@ public class AppGUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Medical Records", jPanel1);
@@ -149,7 +143,7 @@ public class AppGUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Converted Medical Records", jPanel2);
@@ -167,7 +161,7 @@ public class AppGUI extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Medical Report", jPanel3);
@@ -233,6 +227,11 @@ public class AppGUI extends javax.swing.JFrame {
 
         jMenuItem2.setMnemonic('a');
         jMenuItem2.setText("About...");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
@@ -250,10 +249,6 @@ public class AppGUI extends javax.swing.JFrame {
                     .addComponent(jTabbedPane1)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxSearch, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonViewDiagnosisMap)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSaveConvertedRecords)
@@ -267,12 +262,8 @@ public class AppGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jComboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonViewDiagnosisMap)
@@ -629,6 +620,15 @@ public class AppGUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItemExitActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        JOptionPane.showMessageDialog(this, 
+                "Welcome to the EverTrust - Patient Health Assessment Program\n" +
+"This application is a Medical Records Analyzer that processes patient health information from external medical readings files.\n" +
+"It loads and analyzes records to display patient details, perform health-related calculations, and generate summary reports.",
+                "About EverTrust - Patient Health Assessment",
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     private MessageFormat createFormat(String headerText) {
         if (headerText != null && headerText.length() > 0) {
             try {
@@ -685,7 +685,7 @@ public class AppGUI extends javax.swing.JFrame {
             StyleConstants.setSpaceAbove(topPara, 12);   // push it down from top
 
             doc.insertString(doc.getLength(),
-                    "Welcome to the Patient Health Assessment Program\n", bold);
+                    "Welcome to the EverTrust - Patient Health Assessment Program\n", bold);
             doc.setParagraphAttributes(doc.getLength() - 1, 1, topPara, false);
 
             // --- Middle paragraph (normal spacing) ---
@@ -754,9 +754,7 @@ public class AppGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonViewDiagnosisMap;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemPrintInBackground;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemShowProgressDialog;
-    private javax.swing.JComboBox<String> jComboBoxSearch;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jListConvertedMedicalRecords;
     private javax.swing.JList<String> jListMedicalRecords;
     private javax.swing.JMenu jMenu1;
